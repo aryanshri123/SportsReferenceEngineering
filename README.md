@@ -2,7 +2,7 @@
 Here are my solutions to Sports Reference's Engineering Internship prompt! I say solutions because I display two separate approaches. One that involves the Pandas library and another that loads the json into a python dictionary and uses base python from there except for the use of matplotlib to visualize the table. I made sure to add comments to the code for clarity.
 
 ## Pandas Approach
-To me, this is the recommended approach because of the abstractions that Pandas offers. I first loaded in the contents of a given json into a DataFrame called `df`. I reindexed so that I could get the team names on the index (left) as well as in the columns in the same order. At this point, each cell has each pair's win/loss records as a dictionary.
+To me, this is the recommended approach because of the abstractions that Pandas offers. I first loaded in the contents of a given json into a DataFrame called `df`. I reindexed so that I could get the team names on the index (left) as well as in the columns in the same order. At this point, each cell has each pair's win/loss records as a dictionary. It has NaN values for pairs of the same team (e.g. BRO vs. BRO). 
 
 So, I added the `get_wins` method to apply to the dataframe. For each cell, it takes the value associated with 'L' and replaces the dictionary with that value. As noted in a comment in the code, we take the 'L' value so that wins are read across rows rather than down columns to stay consistent with the example table's formatting.
 
